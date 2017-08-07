@@ -50,5 +50,5 @@ bool AskToRollAgain()
 	cout << "Would you like to roll again? (y/n)\n";
 	string Response = "";
 	getline(cin, Response);
-	return (Response[0] == 'y' || Response[0] == 'Y');
+	return (Response[0] =='y' || Response[0] == 'Y');
 }

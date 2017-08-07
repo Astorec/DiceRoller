@@ -14,7 +14,7 @@ public:
 
 	int GetCurrentRoll()  const;
 	
-	//test
+	
 	void Reset(int);
 
 private:
