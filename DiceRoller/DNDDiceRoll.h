@@ -1,27 +1,29 @@
 #pragma once
-#include <string>
-using namespace std;
 
-/*struct DiceRoll
+
+struct Roll
 {
-	
-};*/
 
-class DNDDiceRoll
+	int D6[6] = { 1, 2, 3, 4, 5 , 6 };
+	int D8[8];
+	int D10[10];
+	int D12[12];
+	int D20[20];
+
+};
+
+
+class DnDDiceRoller
 {
 public:
-	DNDDiceRoll();
 
-	int GetCurrentRoll()  const;
+	int CurrentRoll(int RollOut) const;
+
 	
-	
-	void Reset(int);
+	void reset(int);
 
 private:
-	int CurrentRoll;
-	bool RollAgain;
-	bool RollAgainDifferent;
 
-	int GetDiceNumber(int CurrentDice) const;
-	
+	int MyRoll;
+
 };

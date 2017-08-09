@@ -1,49 +1,29 @@
+#pragma once
+#include <iostream>
+#include <string>
+#include <ctime>
 #include "DNDDiceRoll.h"
-#include<ctime>
-DNDDiceRoll::DNDDiceRoll() { Reset(1); }
 
-int DNDDiceRoll::GetCurrentRoll() const
+int DnDDiceRoller::CurrentRoll(int RollOut) const
 {
-	return 0;
-}
-
-int DNDDiceRoll::GetDiceNumber(int CurrentDice) const
-{
+	Roll DDR;
 	
-	int Roll = 0;	
-
-	switch (CurrentDice)
+	int DiceRoll = 0;
+	
+	switch (RollOut)
 	{
 	case 1:
 		srand((unsigned int)time(NULL)); // get a random number
-		Roll = rand() % 6 + 1; // between 1 and 6
-		break;
-	case 2:
-		srand((unsigned int)time(NULL)); // get a random number
-		Roll = rand() % 8 + 1; // between 1 and 6
-		break;
-	case 3:
-		srand((unsigned int)time(NULL)); // get a random number
-		Roll = rand() % 10 + 1; // between 1 and 6
-		break;
-	case 4:
-		srand((unsigned int)time(NULL)); // get a random number
-		Roll = rand() % 12 + 1; // between 1 and 6
-		break;
-	case 5:
-		srand((unsigned int)time(NULL)); // get a random number
-		Roll = rand() % 20 + 1; // between 1 and 6
-		break;
-	default:
+		DiceRoll = rand() % DDR.D6[6 + 1]; // between 1 and 6
 		break;
 	}
 
-	return Roll;
+	return 0;
 }
 
-void DNDDiceRoll::Reset(int CurrentDice)
+void DnDDiceRoller::reset(int RollOut)
 {
-	CurrentRoll = 0;
+	const int DiceRoll = CurrentRoll(RollOut);
+	MyRoll = DiceRoll;
+
 }
-
-
