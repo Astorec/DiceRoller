@@ -4,21 +4,21 @@
 #include <ctime>
 #include "DNDDiceRoll.h"
 
-int DnDDiceRoller::CurrentRoll(int RollOut) const
+int DnDDiceRoller::CurrentRoll(int DiceRoll) const
 {
 	Roll DDR;
 	
-	int DiceRoll = 0;
+	int RollOut = 0;
 	
 	switch (RollOut)
 	{
 	case 1:
-		srand((unsigned int)time(NULL)); // get a random number
-		DiceRoll = rand() % DDR.D6[6 + 1]; // between 1 and 6
+		std::srand(time(NULL)); // get a random number
+		DiceRoll = rand()  % 6; // between 1 and 6
 		break;
 	}
 
-	return 0;
+	return DiceRoll;
 }
 
 void DnDDiceRoller::reset(int RollOut)

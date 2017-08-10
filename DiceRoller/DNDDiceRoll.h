@@ -4,7 +4,7 @@
 struct Roll
 {
 
-	int D6[6] = { 1, 2, 3, 4, 5 , 6 };
+	int D6 = 6;
 	int D8[8];
 	int D10[10];
 	int D12[12];
@@ -17,7 +17,7 @@ class DnDDiceRoller
 {
 public:
 
-	int CurrentRoll(int RollOut) const;
+	int CurrentRoll(int DiceRoll) const;
 
 	
 	void reset(int);

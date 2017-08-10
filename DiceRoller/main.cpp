@@ -17,6 +17,7 @@ DnDDiceRoller RollMain;
 // initiates the program to run the classes
 int main()
 {
+	
 	bool RollAgain = false;
 	do
 	{
@@ -47,8 +48,8 @@ void Start()
 int GetRoll()
 {
 	int DiceSelection = 0;
-	int DiceRoll = 0;
-	RollMain.CurrentRoll(DiceRoll);
+	
+	int DiceRoll = RollMain.CurrentRoll(DiceRoll);
 
 	do
 	{
