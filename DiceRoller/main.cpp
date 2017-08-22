@@ -1,32 +1,28 @@
+/*This is the DND Dicer Roller application. This program was made
+to help me learn more about C++ */
 #pragma once
 #include "DNDDiceRoll.h"
 #include <iostream>
 #include <string>
-#include <ctime>
 using namespace std;
 
 // calls all functions in the program
 int main();
 int GetRoll();
 void PrintIntro();
-void Start();
 bool AskToRollAgain();
 
-DnDDiceRoller RollMain;
-
+DnDDiceRoller DDR;
 // initiates the program to run the classes
 int main()
-{
-	
+{			
 	bool RollAgain = false;
 	do
 	{
-		PrintIntro();
-		Start();
-		GetRoll();
-		RollAgain = AskToRollAgain();
-	} while (RollAgain);
-	return 0;
+		PrintIntro();	
+		GetRoll();	
+		RollAgain = AskToRollAgain();		
+	} while (RollAgain);		
 	return 0;
 }
 
@@ -35,38 +31,29 @@ void PrintIntro()
 {
 	cout << "this is a dnd dice roller application" << endl;
 	cout << "please select the dice you would like to roll" << endl;	
+	cout << "1. D6 2. D8 3. D10 4. D12 5. D20 6. Quit" << endl;
 	return;
-}
-
-void Start()
-{
-	int RollOut = GetRoll();
-	RollMain.reset(RollOut);
-	
 }
  
 int GetRoll()
 {
-	int DiceSelection = 0;
-	
-	int DiceRoll = RollMain.CurrentRoll(DiceRoll);
+	int DiceRoll;
+	int LastRoll;
+	bool FirstRoll = true;	
+	cin >> DiceRoll;
 
 	do
-	{
-		cout << "1. D6 2. D8 3. D10 4. D12 5. D20" << endl; // prompts the user to select the dice the want to use
-		cin >> DiceSelection; // takes in the users selection and stores it whilst outputing the desired roll	
-		cout << DiceRoll << endl;
-				
-	}while (DiceSelection != 1 && DiceSelection != 2 && DiceSelection != 3 && DiceSelection != 4 && DiceSelection != 5);	
+	{	
+		cout << DDR.CurrentRoll(DiceRoll) << endl;			
+		}while (DiceRoll != 1 && DiceRoll != 2 && DiceRoll != 3 && DiceRoll != 4 && DiceRoll != 5 && DiceRoll == 6 ); // ends the loop based on the user selection
 
-	return DiceSelection;
+	return DiceRoll;
 }
-
 // Prompts the user is they would like to roll again
 bool AskToRollAgain()
-{
+ {
 	cout << "Would you like to roll again? (y/n)\n";
 	string Response = "";
 	cin >> Response;
-	return (Response[0] =='y' || Response[0] == 'Y');
+	return (Response[0] == 'y' || Response[0] == 'Y');
 }

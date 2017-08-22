@@ -1,25 +1,22 @@
+/*Header file for the DND dice roller. All class files
+ are initialsed in here. */
+
 #pragma once
+#include<string>
 
-
-struct Roll
+enum class CheckInput
 {
-
-	int D6 = 6;
-	int D8[8];
-	int D10[10];
-	int D12[12];
-	int D20[20];
-
+	OK,
+	Not_Valid_Input
 };
-
 
 class DnDDiceRoller
 {
 public:
 
 	int CurrentRoll(int DiceRoll) const;
-
 	
+
 	void reset(int);
 
 private:
