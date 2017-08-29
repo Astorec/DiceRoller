@@ -3,6 +3,7 @@ to help me learn more about C++ */
 #pragma once
 #include "DNDDiceRoll.h"
 #include <iostream>
+#include <sstream>
 #include <string>
 using namespace std;
 
@@ -37,15 +38,30 @@ void PrintIntro()
  
 int GetRoll()
 {
-	int DiceRoll;
-	int LastRoll;
-	bool FirstRoll = true;	
-	cin >> DiceRoll;
+	int DiceRoll;	
+	string line;
+	cin.clear();
+	
 
-	do
-	{	
-		cout << DDR.CurrentRoll(DiceRoll) << endl;			
-		}while (DiceRoll != 1 && DiceRoll != 2 && DiceRoll != 3 && DiceRoll != 4 && DiceRoll != 5 && DiceRoll == 6 ); // ends the loop based on the user selection
+while (getline(cin, line))
+	{
+		stringstream linestream(line);
+		cin >> DiceRoll;		
+	
+		if ((DiceRoll < 1) || (DiceRoll > 6))
+		{
+			cout << "Please enter a valid input \n";
+			cin.clear();
+			continue;			
+		}			
+			cout << DDR.CurrentRoll(DiceRoll) << endl;
+			break;		
+	}
+	
+	
+	
+	
+	 // ends the loop based on the user selection
 
 	return DiceRoll;
 }
