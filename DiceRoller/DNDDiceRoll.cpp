@@ -42,6 +42,11 @@ int DnDDiceRoller::CurrentRoll(int DiceRoll) const
 	return DiceRoll;
 }
 
+int DnDDiceRoller::MenuSelection(int DiceRoll) const
+{
+	return 0;
+}
+
 
 
 void DnDDiceRoller::reset(int DiceRoll)

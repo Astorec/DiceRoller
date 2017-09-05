@@ -15,6 +15,7 @@ class DnDDiceRoller
 public:
 
 	int CurrentRoll(int DiceRoll) const;
+	int MenuSelection(int DiceRoll) const;
 	
 
 	void reset(int);
